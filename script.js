@@ -9,7 +9,7 @@ const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersec
   const ctx=canvas.getContext('2d',{alpha:false}),
         total=150,
         images=new Array(total);
-  let current=-1,raf=0,started=false;
+  let current=-1,raf=0,started=false,preloadCursor=0;
 
   const path=i=>`./public/frames/frame_${String(i+1).padStart(4,'0')}.jpg`;
 
@@ -55,11 +55,19 @@ const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersec
   }
 
   function preloadAround(center){
-    const radius=10;
+    const radius=18;
     for(let d=0;d<=radius;d++){
       load(center-d);
       load(center+d);
     }
+  }
+
+  function preloadRest(){
+    if(preloadCursor>=total)return;
+    const batch=4;
+    for(let n=0;n<batch&&preloadCursor<total;n++,preloadCursor++) load(preloadCursor);
+    if('requestIdleCallback' in window) requestIdleCallback(preloadRest,{timeout:500});
+    else setTimeout(preloadRest,120);
   }
 
   function render(i){
@@ -88,6 +96,7 @@ const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersec
 
   resize();
   load(0);
+  preloadRest();
   update();
 
   addEventListener('resize',()=>{
