@@ -11,7 +11,7 @@ const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersec
         images=new Array(total);
   let current=-1,raf=0,started=false;
 
-  const path=i=>`./frames/frame_${String(i+1).padStart(4,'0')}.jpg`;
+  const path=i=>`./public/frames/frame_${String(i+1).padStart(4,'0')}.jpg`;
 
   function resize(){
     const dpr=Math.min(window.devicePixelRatio||1,1.5);
