@@ -10,7 +10,7 @@
   margin-right:calc(7vw * -1);
   margin-left:calc(7vw * -1);
   width:calc(100% + 14vw);
-  height:190vh;
+  height:260vh;
   position:relative;
   isolation:isolate;
   background:var(--green);
@@ -63,7 +63,7 @@
     margin-right:calc(6vw * -1);
     margin-left:calc(6vw * -1);
     width:calc(100% + 12vw);
-    height:180vh;
+    height:230vh;
   }
   .product-sequence canvas{height:100svh}
   .product-sequence:before,
