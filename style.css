@@ -40,7 +40,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
 .news-grid{grid-template-columns:1fr;gap:10px}.news-grid article{min-height:150px;padding:18px}.contact{padding:52px 6vw}footer{flex-direction:column;align-items:flex-start}
 }
 
-
 /* ===================================================
    ZADONA - EDITORIAL SEQUENCE & CARDS
 =================================================== */
@@ -53,11 +52,7 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   background-color: #1a422f;
 }
 
-
-
 .accent-text { color: #c9b087; }
-
-
 
 .editorial-badge, .editorial-tag {
   display: inline-block;
@@ -69,8 +64,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   padding-bottom: 4px;
   margin-bottom: 8px;
 }
-
-
 
 .stage-scroll-indicator {
   position: absolute;
@@ -104,7 +97,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
    دمج نهاية السكرول + توحيد لون الخلفية الكريمي الدافئ
 =================================================== */
 
-/* 1. إضافة تدرج انسيابي بنهاية سكشن السكرول لتتلاشى الخلفية الخضراء بنعومة */
 .products-experience-wrapper {
   position: relative;
   width: 100%;
@@ -125,7 +117,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   z-index: 25;
 }
 
-/* 2. سكشن الأرقام باللون الكريمي الدافئ المتناسق مع باقي الموقع */
 .editorial-stats {
   background-color: #ede8dc;
   position: relative;
@@ -168,7 +159,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   background: rgba(26, 66, 47, 0.15);
 }
 
-/* 3. توحيد سكشن الكروت بنفس الخلفية الدافئة */
 .quality-editorial-section {
   background-color: #ede8dc;
   padding: 80px 5% 100px;
@@ -190,7 +180,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
     gap: 36px;
   }
 }
-
 
 /* ===================================================
    ZADONA - EDITORIAL HERO WITH INDUSTRIAL SHOWCASE
@@ -449,7 +438,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   }
 }
 
-
 /* ===================================================
    ZADONA - توحيد الهوية اللونية بلون #f3ebd6
 =================================================== */
@@ -544,7 +532,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   border: 1px solid rgba(26, 66, 47, 0.12);
 }
 
-
 /* ضبط عرض شاحنة ZADONA وإبراز الشعار */
 .bento-fleet .truck-img {
   width: 100%;
@@ -558,7 +545,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   transform: scale(1.05);
 }
 
-
 /* النص داخل الدائرة المركزية */
 .circle-center {
   color: #f3ebd6;
@@ -569,7 +555,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   align-items: center;
   justify-content: center;
 }
-
 
 /* ===================================================
    ZADONA - QUALITY SECTION (02 / THE STANDARD)
@@ -746,17 +731,17 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
 }
 
 /* ===================================================
-   العبوة العائمة - تموضع دقيق في الفراغ
+   العبوة العائمة - نظام المحطات الذكية
 =================================================== */
 .floating-bottle {
   position: fixed;
-  top: 14%;
-  left: 3%;
-  width: clamp(100px, 14vw, 190px);
+  top: 0;
+  left: 0;
+  width: 80px;
   z-index: 999;
   pointer-events: none;
   will-change: transform;
-  filter: drop-shadow(0 18px 25px rgba(26, 66, 47, 0.22));
+  filter: drop-shadow(0 14px 22px rgba(26, 66, 47, 0.22));
   transform-origin: center center;
 }
 
@@ -764,18 +749,13 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
 }
 
-/* شاشات الموبايل: حجم ناعم لا يتداخل مع الأسطر */
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   .floating-bottle {
-    width: 82px;
-    top: 12%;
-    left: 4%;
+    width: 110px;
   }
 }
-
 
 /* ===================================================
    ضبط قسم المنتجات وبانر التواصل والفوتر
