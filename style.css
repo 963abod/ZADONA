@@ -755,3 +755,34 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
     margin-top: 50px;
   }
 }
+
+/* ===================================================
+   ZADONA - FLOATING BOTTLE
+=================================================== */
+.floating-bottle {
+  position: fixed;
+  top: 50%;
+  right: 7%;
+  width: clamp(150px, 18vw, 280px);
+  transform: translateY(-50%);
+  z-index: 40;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bottle-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 35px rgba(2, 17, 12, 0.16));
+}
+
+@media (max-width: 800px) {
+  .floating-bottle {
+    width: 135px;
+    right: 4%;
+  }
+}
