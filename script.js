@@ -31,7 +31,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     canvas.width=Math.round(w*dpr);
     canvas.height=Math.round(h*dpr);
     ctx.setTransform(dpr,0,0,dpr,0,0);
-    if(images[drawnFrame])drawFrame(drawnFrame);
+    const frameToDraw = currentFrame >= 0 ? currentFrame : (drawnFrame >= 0 ? drawnFrame : 0);
+    const ready = nearestLoaded(frameToDraw);
+    if(ready >= 0) drawFrame(ready);
   }
 
   function drawFrame(index){
@@ -111,16 +113,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       anticipatePin:1,
       scrub:1,
       start:'top top',
-      end:'+=2000',
+      end:'+=250vh',
       invalidateOnRefresh:true,
       onUpdate:self=>renderProgress(self.progress),
-      onRefresh:self=>renderProgress(self.progress),
-      onLeave:()=>{
-        section.classList.add('is-complete');
-      },
-      onEnterBack:()=>{
-        section.classList.remove('is-complete');
-      }
+      onRefresh:self=>renderProgress(self.progress)
     });
 
     ScrollTrigger.refresh();
