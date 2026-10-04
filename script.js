@@ -81,7 +81,10 @@ const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersec
     raf=0;
     const r=section.getBoundingClientRect();
     const travel=Math.max(1,section.offsetHeight-innerHeight);
-    const p=Math.max(0,Math.min(1,-r.top/travel));
+    const raw=Math.max(0,Math.min(1,-r.top/travel));
+    // Slow the first part of the sequence so the product stays visually locked
+    // while the page advances, then let the frames catch up near the end.
+    const p=raw<0.78 ? raw*0.72 : 0.5616 + ((raw-0.78)/0.22)*0.4384;
 
     section.classList.toggle('is-pinned',r.top<=0&&r.bottom>innerHeight);
     section.classList.toggle('is-ended',r.bottom<=innerHeight);
