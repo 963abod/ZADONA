@@ -192,21 +192,38 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   50% { transform: translateY(8px); opacity: 1; }
 }
 
-.editorial-stats {
-  background-color: #f7f5f0;
-  padding: 60px 5%;
-  border-top: 1px solid rgba(26, 66, 47, 0.08);
-  border-bottom: 1px solid rgba(26, 66, 47, 0.08);
+/* ===================================================
+   دمج نهاية السكرول + توحيد لون الخلفية الكريمي الدافئ
+=================================================== */
+
+/* 1. إضافة تدرج انسيابي بنهاية سكشن السكرول لتتلاشى الخلفية الخضراء بنعومة */
+.products-experience-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #1a422f;
 }
 
-.stats-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
+.products-experience-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(to bottom, rgba(26, 66, 47, 0) 0%, #ede8dc 100%);
+  pointer-events: none;
+  z-index: 25;
+}
+
+/* 2. سكشن الأرقام باللون الكريمي الدافئ المتناسق مع باقي الموقع */
+.editorial-stats {
+  background-color: #ede8dc;
+  position: relative;
+  padding: 80px 5% 60px;
+  border-top: none;
+  margin-top: -1px;
 }
 
 .stat-card {
@@ -221,109 +238,41 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   font-weight: 700;
   color: #1a422f;
   line-height: 1;
-  font-feature-settings: "tnum";
 }
 
 .stat-label {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #2b3a32;
-  margin-top: 10px;
+  color: #24352b;
+  margin-top: 12px;
 }
 
 .stat-sub {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   letter-spacing: 0.15em;
-  color: #7b887f;
+  color: #8c7b64;
   margin-top: 4px;
 }
 
 .stat-divider {
   width: 1px;
-  height: 60px;
-  background: rgba(26, 66, 47, 0.12);
+  height: 55px;
+  background: rgba(26, 66, 47, 0.15);
 }
 
+/* 3. توحيد سكشن الكروت بنفس الخلفية الدافئة */
 .quality-editorial-section {
-  background-color: #f7f5f0;
-  padding: 100px 5%;
-}
-
-.quality-header {
-  max-width: 1200px;
-  margin: 0 auto 50px auto;
-  text-align: right;
-}
-
-.section-micro-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  color: #7b887f;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.quality-header h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: #1a422f;
-  font-weight: 700;
-}
-
-.quality-cards-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  background-color: #ede8dc;
+  padding: 80px 5% 100px;
 }
 
 .bento-card {
-  background: #ffffff;
+  background: #fbf9f5;
   border: 1px solid rgba(26, 66, 47, 0.08);
   border-radius: 20px;
   padding: 36px 30px;
   text-align: right;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.bento-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px rgba(26, 66, 47, 0.05);
-}
-
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-}
-
-.card-index {
-  font-family: monospace;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #c9b087;
-}
-
-.card-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #1a422f;
-}
-
-.bento-card h3 {
-  font-size: 1.3rem;
-  color: #1a422f;
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-.bento-card p {
-  color: #55635b;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin: 0;
+  box-shadow: 0 4px 20px rgba(26, 66, 47, 0.03);
 }
 
 @media (max-width: 768px) {
