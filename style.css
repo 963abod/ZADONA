@@ -41,8 +41,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
 }
 
 
-
-
 /* ===================================================
    ZADONA - EDITORIAL SEQUENCE & CARDS
 =================================================== */
@@ -54,7 +52,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   padding: 0;
   background-color: #1a422f;
 }
-
 
 
 
@@ -187,9 +184,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
 }
 
 @media (max-width: 768px) {
-
-
-
   .stat-divider { display: none; }
   .stats-container {
     flex-direction: column;
@@ -442,17 +436,14 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
     gap: 40px;
     padding-top: 30px;
   }
-  
   .hero-visual-bento {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
-
   .bento-factory {
     grid-column: 1;
     height: 200px;
   }
-  
   .bento-fleet {
     height: 180px;
   }
@@ -578,8 +569,6 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   align-items: center;
   justify-content: center;
 }
-
-
 
 
 /* ===================================================
@@ -756,17 +745,19 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   }
 }
 
-/* العبوة العائمة */
+/* ===================================================
+   العبوة العائمة - تموضع دقيق في الفراغ
+=================================================== */
 .floating-bottle {
   position: fixed;
-  top: 22%;
-  left: 8%;
-  width: clamp(150px, 18vw, 240px);
+  top: 14%;
+  left: 3%;
+  width: clamp(100px, 14vw, 190px);
   z-index: 999;
   pointer-events: none;
   will-change: transform;
-  filter: drop-shadow(0 25px 35px rgba(26, 66, 47, 0.22));
-  transition: filter 0.4s ease;
+  filter: drop-shadow(0 18px 25px rgba(26, 66, 47, 0.22));
+  transform-origin: center center;
 }
 
 .floating-bottle img {
@@ -776,11 +767,11 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   object-fit: contain;
 }
 
-/* بالموبايل */
+/* شاشات الموبايل: حجم ناعم لا يتداخل مع الأسطر */
 @media (max-width: 768px) {
   .floating-bottle {
-    width: 130px;
-    top: 26%;
-    left: 6%;
+    width: 82px;
+    top: 12%;
+    left: 4%;
   }
 }
