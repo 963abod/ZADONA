@@ -13,6 +13,8 @@
   let resizeTimer = 0;
   let trigger = null;
   let isTicking = false;
+  let loadedCount = 0;
+  const progressBar = document.getElementById('preload-progress-bar');
 
   const framePath = i => `./public/frames/frame_${String(i+1).padStart(4,'0')}.jpg`;
 
@@ -60,6 +62,11 @@
     img.src = framePath(index);
     img.onload = () => {
       images[index] = img;
+      loadedCount++;
+      if (progressBar) {
+        const percent = Math.min(100, Math.round((loadedCount / total) * 100));
+        progressBar.style.width = percent + '%';
+      }
       if(callback) callback(img);
       if(index === 0 && loading) loading.classList.add('is-hidden');
     };
