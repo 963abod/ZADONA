@@ -13,8 +13,6 @@
   let resizeTimer = 0;
   let trigger = null;
   let isTicking = false;
-  let loadedCount = 0;
-  const progressBar = document.getElementById('preload-progress-bar');
 
   const framePath = i => `./public/frames/frame_${String(i+1).padStart(4,'0')}.jpg`;
 
@@ -49,7 +47,6 @@
     return true;
   }
 
-  // تحميل ذكي بدون تكرار وخنق للذاكرة
   function loadFrame(index, callback){
     if(index < 0 || index >= total) return;
     if(images[index]) {
@@ -62,28 +59,20 @@
     img.src = framePath(index);
     img.onload = () => {
       images[index] = img;
-      loadedCount++;
-      if (progressBar) {
-        const percent = Math.min(100, Math.round((loadedCount / total) * 100));
-        progressBar.style.width = percent + '%';
-      }
       if(callback) callback(img);
       if(index === 0 && loading) loading.classList.add('is-hidden');
     };
     images[index] = img;
   }
 
-  // تحميل أولي ذكي بالخلفية
   function initPreload(){
-    // حمل أول فريم فوراً
     loadFrame(0, () => drawFrame(0));
-    // حمل باقي الفريمات بالخلفية بالتدريج بدون حرق موارد المتصفح
     let i = 1;
     function loadNext(){
       if(i < total){
         loadFrame(i);
         i++;
-        setTimeout(loadNext, 15);
+        setTimeout(loadNext, 12);
       }
     }
     loadNext();
@@ -103,51 +92,41 @@
   function renderProgress(progress){
     const clamped = Math.max(0, Math.min(1, progress));
     
-    // سكرول بطيء ومدروس: الفريمات بتنتهي عند 85%
-    const frameProgress = Math.min(1, clamped / 0.85);
-    currentFrame = Math.round(frameProgress * (total - 1));
+    // سكرول ناعم ممتد على كامل المسافة بدون أي إخفاء للكانفاس
+    currentFrame = Math.round(clamped * (total - 1));
 
-    // رسم عبر requestAnimationFrame حتى لا يعلّق السكرول نهائياً
     if(!isTicking){
       requestAnimationFrame(() => {
         const ready = nearestLoaded(currentFrame);
         if(ready >= 0) drawFrame(ready);
 
-        // تسليم ناعم بآخر 15% وتلاشي
-        if(clamped > 0.85){
-          const fade = 1 - ((clamped - 0.85) / 0.15);
-          canvas.style.opacity = Math.max(0, fade).toString();
-        } else {
-          canvas.style.opacity = '1';
-        }
-        // تحكم بظهور واختفاء النصوص العائمة بحسب مرحلة السكرول
+        // تحكم بالنصوص العائمة بمحاذاة ممتازة بدون تغطية المنتج
         const introCard = document.getElementById('overlay-intro');
         const leftCard = document.getElementById('overlay-step-1');
         const rightCard = document.getElementById('overlay-step-2');
 
-        if (introCard && leftCard && rightCard) {
-          // الكرت الأول الترحيبي: يختفي بعد 25% من السكرول
-          if (clamped < 0.25) {
-            introCard.style.opacity = (1 - (clamped / 0.25)).toString();
-            introCard.style.transform = `translateY(${clamped * -20}px)`;
-          } else {
-            introCard.style.opacity = '0';
-          }
+        if(introCard){
+          // النص الترحيبي يظهر بالبداية ويتلاشى تدريجياً قبل أن يلف المنتج
+          introCard.style.opacity = clamped < 0.2 ? (1 - clamped / 0.2).toString() : '0';
+          introCard.style.transform = `translateY(${clamped * -20}px)`;
+        }
 
-          // الكرت الثاني: يظهر بنصف السكرول ويختفي بعدين
-          if (clamped >= 0.25 && clamped < 0.65) {
-            const p = (clamped - 0.25) / 0.4;
-            leftCard.style.opacity = (p < 0.5 ? p * 2 : (1 - p) * 2).toString();
-            leftCard.style.transform = `translateY(${(1 - p) * 15}px)`;
+        if(leftCard){
+          // كرت المواصفات يظهر أثناء دوران العبوة بالنصف
+          if(clamped >= 0.3 && clamped <= 0.7){
+            const norm = (clamped - 0.3) / 0.4;
+            const op = norm < 0.5 ? norm * 2 : (1 - norm) * 2;
+            leftCard.style.opacity = op.toString();
           } else {
             leftCard.style.opacity = '0';
           }
+        }
 
-          // الكرت الثالث: يظهر بآخر لفة القنينة
-          if (clamped >= 0.65 && clamped < 0.9) {
-            const p = (clamped - 0.65) / 0.25;
-            rightCard.style.opacity = (p < 0.5 ? p * 2 : (1 - p) * 2).toString();
-            rightCard.style.transform = `translateY(${(1 - p) * 15}px)`;
+        if(rightCard){
+          // الكرت الأخير بنهاية لفة العبوة
+          if(clamped > 0.7){
+            const norm = (clamped - 0.7) / 0.3;
+            rightCard.style.opacity = Math.min(1, norm * 2).toString();
           } else {
             rightCard.style.opacity = '0';
           }
@@ -171,17 +150,13 @@
       pin: true,
       pinSpacing: true,
       anticipatePin: 1,
-      scrub: 0.5,
+      scrub: 0.8,         // سكرول بطيء وأكثر استجابة ومرونة
       start: 'top top',
-      end: '+=450vh', // زودنا المسافة حتى تكون الحركة هادية ومو سريعة
+      end: '+=650vh',     // مسافة سكرول كافية لتكون الحركة هادئة وموزونة
       invalidateOnRefresh: true,
       onUpdate: self => renderProgress(self.progress),
-      onRefresh: self => renderProgress(self.progress),
-      onLeaveBack: () => {
-        // تنظيف وحماية: لما ترجع للهيرو فوق، اتأكد الكانفاس ما يعلق بوش المستخدم
-        canvas.style.opacity = '1';
-      }
-    });
+      onRefresh: self => renderProgress(self.progress)
+    );
 
     ScrollTrigger.refresh();
   }
