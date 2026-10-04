@@ -30,7 +30,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   function render(i){current=Math.max(0,Math.min(total-1,Math.round(i)));preloadAround(current);if(images[current]&&images[current].complete)draw(current)}
   function update(){
     raf=0;const r=track.getBoundingClientRect(),travel=Math.max(1,track.offsetHeight-innerHeight),raw=Math.max(0,Math.min(1,-r.top/travel));
-    const p=raw<.84?(raw/.84)*.58:.58+((raw-.84)/.16)*.42;
+    const p=raw;
     render(p*(total-1));
   }
   function onScroll(){if(!raf)raf=requestAnimationFrame(update)}
