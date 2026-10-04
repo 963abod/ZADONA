@@ -33,3 +33,19 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
 .stats{grid-template-columns:1fr}.stats div{border-left:0;border-bottom:1px solid var(--line);padding:22px 0}.stats div:last-child{border-bottom:0}.stats strong{font-size:48px}.quality-highlights{padding-top:10px}.highlights-grid{grid-template-columns:1fr;gap:0}.highlights-grid article{padding:20px 0}.highlights-grid h3{font-size:21px;margin:20px 0 8px}
 .news-grid{grid-template-columns:1fr;gap:10px}.news-grid article{min-height:150px;padding:18px}.contact{padding:52px 6vw}footer{flex-direction:column;align-items:flex-start}
 }
+#product-sequence{
+  position:relative;
+  width:100%;
+  height:100vh;
+  min-height:100vh;
+  z-index:20;
+  overflow:hidden;
+  background-color:#1a422f;
+}
+
+#product-sequence-canvas{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
