@@ -7,7 +7,10 @@
 /* ZADONA scroll-driven product sequence — integrated full-bleed experience */
 .product-sequence-track{
   margin-top:42px;
-  height:190vh;
+  margin-right:calc(7vw * -1);
+  margin-left:calc(7vw * -1);
+  width:calc(100% + 14vw);
+  height:220vh;
   position:relative;
 }
 .product-sequence{
@@ -63,7 +66,10 @@
 @media(max-width:800px){
   .product-sequence-track{
     margin-top:30px;
-    height:170vh;
+    margin-right:calc(6vw * -1);
+    margin-left:calc(6vw * -1);
+    width:calc(100% + 12vw);
+    height:200vh;
   }
   .product-sequence{
   }
