@@ -13,11 +13,80 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
-<header class="nav">
-  <a class="brand" href="#"><span>ZADONA</span><small>FOOD INDUSTRIES</small></a>
-  <nav><a href="#about">عن زادونا</a><a href="#quality">الجودة</a><a href="#products">منتجاتنا</a><a href="#news">الأخبار</a></nav>
-  <a class="nav-cta" href="#contact">تواصل معنا <span>↗</span></a>
-  <button class="menu" aria-label="القائمة">☰</button>
+<header id="hero" class="hero-editorial">
+  
+  <!-- الشريط الإخباري الحي (Industrial Live Ticker) -->
+  <div class="hero-ticker">
+    <div class="ticker-track">
+      <span>● سلسلة تبريد مستمرة 4°C</span>
+      <span>● أسطول نقل حديث مجهّز لنقل الأغذية</span>
+      <span>● معايير تصنيع مؤتمتة بنقاء 100%</span>
+      <span>● مختبر داخلي لفحص كل دفعة إنتاج</span>
+      <span>● سلسلة تبريد مستمرة 4°C</span>
+      <span>● أسطول نقل حديث مجهّز لنقل الأغذية</span>
+    </div>
+  </div>
+
+  <div class="hero-container">
+    <!-- الجزء النصي الرئيسي -->
+    <div class="hero-main-content">
+      <div class="hero-tag">
+        <span class="pulse-dot"></span>
+        منظومة تصنيع متكاملة
+      </div>
+      <h1 class="hero-title">
+        نبتكر الغذاء،<br>
+        <span class="italic-serif">بمعايير صناعية</span> تفوق التوقّع.
+      </h1>
+      <p class="hero-desc">
+        من صالات الإنتاج الفائقة التعقيم إلى أسطول النقل المبرّد؛ زادونا تؤسس جيلاً جديداً من المنتجات الغذائية المدعمة بالبروتين بأعلى درجات الانضباط.
+      </p>
+      
+      <!-- مؤشر جاهزية التجربة السفلية -->
+      <div class="experience-readiness">
+        <div class="readiness-bar">
+          <div class="readiness-fill" id="preload-progress-bar"></div>
+        </div>
+        <span class="readiness-text">مرر للأسفل لاكتشاف المنتج التفاعلي</span>
+      </div>
+    </div>
+
+    <!-- شبكة الصور الصناعية التفاعلية (Industrial Bento Showcase) -->
+    <div class="hero-visual-bento">
+      
+      <!-- كرت 1: خطوط الإنتاج والتعقيم -->
+      <div class="bento-item bento-factory">
+        <img src="./public/images/factory.jpg" alt="مصنع زادونا المؤتمت" onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80'">
+        <div class="bento-badge">
+          <span class="bento-num">01</span>
+          <span class="bento-title">خطوط إنتاج مؤتمتة بالكامل</span>
+        </div>
+      </div>
+
+      <!-- كرت 2: أسطول النقل وسلسلة التبريد -->
+      <div class="bento-item bento-fleet">
+        <img src="./public/images/fleet.jpg" alt="أسطول توزيع زادونا" onerror="this.src='https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80'">
+        <div class="bento-badge">
+          <span class="bento-num">02</span>
+          <span class="bento-title">أسطول مبرّد من الباب إلى الرف</span>
+        </div>
+      </div>
+
+      <!-- كرت 3: بطاقة معايير الجودة والمختبر -->
+      <div class="bento-item bento-spec">
+        <div class="spec-content">
+          <span class="spec-label">CERTIFIED SAFETY</span>
+          <h4>ضبط الجودة</h4>
+          <p>فحص مخبري دوري لكل تشغيلة لضمان نقاء البروتين وثبات الطعم.</p>
+          <div class="spec-footer">
+            <span class="spec-chip">HACCP STANDARDS</span>
+            <span class="spec-chip">COLD-CHAIN</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </header>
 
 <main>
