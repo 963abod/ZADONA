@@ -64,30 +64,105 @@
   </div>
 </section>
 
-<section id="products" class="products section">
-  <div class="section-label">03 / منتجاتنا</div>
-  <div class="product-intro"><h2>شيء جديد<br><span>قريبًا.</span></h2><p>نجهّز أول منتجات ZADONA بعناية. هذه التجربة تعرض المنتج بطريقة تفاعلية، إطارًا بعد إطار، مع كل حركة تمرير.</p></div>
-  <div class="product-sequence-track">
-    <div class="product-sequence" id="product-sequence" aria-label="ZADONA product experience">
-      <canvas id="product-sequence-canvas"></canvas>
-      <div class="sequence-loading" id="sequence-loading">ZADONA / PRODUCT 01</div>
-      <div class="stage-note">SCROLL<br>PRODUCT / 01</div>
+<!-- سكشن تجربة المنتج التفاعلية (Full Bleed Viewport) -->
+<section id="products" class="products-experience-wrapper">
+  
+  <div class="product-sequence-viewport" id="product-sequence" aria-label="ZADONA product experience">
+    <!-- خلفية الكانفاس السينمائي -->
+    <canvas id="product-sequence-canvas"></canvas>
+
+    <!-- لودر أنيق -->
+    <div class="sequence-loading" id="sequence-loading">
+      <span>ZADONA</span>
+      <div class="loader-line"></div>
+      <span>EXPERIENCE / 01</span>
+    </div>
+
+    <!-- طبقات النصوص العائمة تفاعلياً (Editorial Floating Cards) -->
+    <div class="experience-overlay experience-overlay--intro" id="overlay-intro">
+      <span class="editorial-badge">03 / منتجاتنا</span>
+      <h2>شيء جديد<br><span class="accent-text">قريبًا.</span></h2>
+      <p>نجهّز أول منتجات ZADONA بعناية فائقة وتجربة تفاعلية نقية.</p>
+    </div>
+
+    <div class="experience-overlay experience-overlay--left" id="overlay-step-1">
+      <span class="editorial-tag">01. التركيبة</span>
+      <h3>حليب بروتين نقي</h3>
+      <p>مستخلص بأعلى معايير الجودة لتغذية يومية متوازنة.</p>
+    </div>
+
+    <div class="experience-overlay experience-overlay--right" id="overlay-step-2">
+      <span class="editorial-tag">02. التفاصيل</span>
+      <h3>تصميم عصري</h3>
+      <p>عبوة محكمة تحفظ النكهة والقيمة الغذائية من أول رشفة.</p>
+    </div>
+
+    <!-- مؤشر السكرول السفلي المينيمل -->
+    <div class="stage-scroll-indicator">
+      <span>SCROLL TO EXPLORE</span>
+      <div class="scroll-dot"></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- سكشن الإحصائيات (تصميم بطاقات عصرية ونظيفة - uiverse style) -->
+<section class="editorial-stats">
+  <div class="stats-container">
+    <div class="stat-card">
+      <span class="stat-num">01</span>
+      <span class="stat-label">هوية غذائية أصيلة</span>
+      <span class="stat-sub">LOCAL EXCELLENCE</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-card">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">اهتمام بأدق التفاصيل</span>
+      <span class="stat-sub">PURE INGREDIENTS</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-card">
+      <span class="stat-num">∞</span>
+      <span class="stat-label">تطوير وابتكار مستمر</span>
+      <span class="stat-sub">SUSTAINED QUALITY</span>
     </div>
   </div>
 </section>
 
-<section class="stats section">
-  <div><strong>01</strong><span>هوية غذائية</span></div>
-  <div><strong>100%</strong><span>اهتمام بالتفاصيل</span></div>
-  <div><strong>∞</strong><span>أفكار قابلة للتطوير</span></div>
-</section>
+<!-- سكشن الجودة والمراحل (Editorial Bento Cards) -->
+<section class="quality-editorial-section">
+  <div class="quality-header">
+    <span class="section-micro-label">03.5 / FROM SOURCE TO SHELF</span>
+    <h2>معايير ثابتة من المصدر حتى الرف</h2>
+  </div>
 
-<section class="quality-highlights section">
-  <div class="section-label">03.5 / FROM SOURCE TO SHELF</div>
-  <div class="highlights-grid">
-    <article><span>01</span><h3>مكونات موثوقة</h3><p>اختيار مدروس للمكونات مع اهتمام بالمصدر والثبات والجودة.</p></article>
-    <article><span>02</span><h3>تصنيع منضبط</h3><p>كل مرحلة لها معيار واضح من التحضير وحتى المنتج النهائي.</p></article>
-    <article><span>03</span><h3>وضوح في كل عبوة</h3><p>هوية بسيطة ومعلومات واضحة تجعل المنتج مفهومًا من النظرة الأولى.</p></article>
+  <div class="quality-cards-grid">
+    <article class="bento-card">
+      <div class="card-top">
+        <span class="card-index">01</span>
+        <span class="card-dot"></span>
+      </div>
+      <h3>مكونات موثوقة</h3>
+      <p>اختيار مدروس للمكونات الطبيعية مع تدقيق متواصل للمصدر والثبات والنقاء.</p>
+    </article>
+
+    <article class="bento-card">
+      <div class="card-top">
+        <span class="card-index">02</span>
+        <span class="card-dot"></span>
+      </div>
+      <h3>تصنيع منضبط</h3>
+      <p>كل مرحلة تخضع لمعيار إنتاجي صارم ومراقب من بداية التحضير وحتى التعبئة.</p>
+    </article>
+
+    <article class="bento-card">
+      <div class="card-top">
+        <span class="card-index">03</span>
+        <span class="card-dot"></span>
+      </div>
+      <h3>وضوح في كل عبوة</h3>
+      <p>تصميم مينيمل ومعلومات غذائية شفافة تجعل خيارك صحياً وسهلاً من النظرة الأولى.</p>
+    </article>
   </div>
 </section>
 
