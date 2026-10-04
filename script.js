@@ -89,10 +89,25 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 
   function renderProgress(progress){
     const clamped=Math.max(0,Math.min(1,progress));
-    currentFrame=Math.round(clamped*(total-1));
+
+    // رسم الإطارات خلال أول 88% من السكرول
+    const frameProgress = Math.min(1, clamped / 0.88);
+    currentFrame=Math.round(frameProgress*(total-1));
+
     preloadWindow(currentFrame);
+
     const ready=nearestLoaded(currentFrame);
-    if(ready>=0)drawFrame(ready);
+    if(ready>=0) drawFrame(ready);
+
+    // Fade-out ناعم بآخر 12% حتى ما تضل الصورة معلقة ويسلّم السكشن اللي بعده
+    if (clamped > 0.88) {
+      const fade = 1 - ((clamped - 0.88) / 0.12);
+      canvas.style.opacity = Math.max(0, fade).toString();
+      canvas.style.pointerEvents = 'none';
+    } else {
+      canvas.style.opacity = '1';
+      canvas.style.pointerEvents = 'auto';
+    }
   }
 
   function setupPin(){
@@ -103,7 +118,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 
     gsap.registerPlugin(ScrollTrigger);
 
-    if(trigger)trigger.kill();
+    if(trigger) trigger.kill();
 
     trigger=ScrollTrigger.create({
       id:'zadona-product-sequence',
@@ -111,12 +126,16 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       pin:true,
       pinSpacing:true,
       anticipatePin:1,
-      scrub:1,
+      scrub:0.3, // استجابة أسرع وأسلس بدون لاغ
       start:'top top',
-      end:'+=250vh',
+      end:'+=220vh',
       invalidateOnRefresh:true,
-      onUpdate:self=>renderProgress(self.progress),
-      onRefresh:self=>renderProgress(self.progress)
+      onUpdate:self=>{
+        renderProgress(self.progress);
+      },
+      onRefresh:self=>{
+        renderProgress(self.progress);
+      }
     });
 
     ScrollTrigger.refresh();
