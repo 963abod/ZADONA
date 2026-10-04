@@ -12,7 +12,6 @@
   let dpr = 1;
   let resizeTimer = 0;
   let trigger = null;
-  let isTicking = false;
 
   const framePath = i => `./public/frames/frame_${String(i+1).padStart(4,'0')}.jpg`;
 
@@ -50,7 +49,7 @@
   function loadFrame(index, callback){
     if(index < 0 || index >= total) return;
     if(images[index]) {
-      if(callback) callback(images[index]);
+      if(callback && images[index].complete) callback(images[index]);
       return;
     }
 
@@ -65,17 +64,12 @@
     images[index] = img;
   }
 
-  function initPreload(){
-    loadFrame(0, () => drawFrame(0));
-    let i = 1;
-    function loadNext(){
-      if(i < total){
-        loadFrame(i);
-        i++;
-        setTimeout(loadNext, 12);
-      }
+  // تحميل ذكي: يحمل الفريمات المحيطة بمكان إصبعك فوراً حتى لا تتجمد الحركة
+  function preloadAround(target){
+    const radius = 10;
+    for(let i = -radius; i <= radius; i++){
+      loadFrame(target + i);
     }
-    loadNext();
   }
 
   function nearestLoaded(target){
@@ -91,50 +85,40 @@
 
   function renderProgress(progress){
     const clamped = Math.max(0, Math.min(1, progress));
-    
-    // سكرول ناعم ممتد على كامل المسافة بدون أي إخفاء للكانفاس
     currentFrame = Math.round(clamped * (total - 1));
 
-    if(!isTicking){
-      requestAnimationFrame(() => {
-        const ready = nearestLoaded(currentFrame);
-        if(ready >= 0) drawFrame(ready);
+    // اطلب الفريمات القريبة فوراً
+    preloadAround(currentFrame);
 
-        // تحكم بالنصوص العائمة بمحاذاة ممتازة بدون تغطية المنتج
-        const introCard = document.getElementById('overlay-intro');
-        const leftCard = document.getElementById('overlay-step-1');
-        const rightCard = document.getElementById('overlay-step-2');
+    const ready = nearestLoaded(currentFrame);
+    if(ready >= 0) drawFrame(ready);
 
-        if(introCard){
-          // النص الترحيبي يظهر بالبداية ويتلاشى تدريجياً قبل أن يلف المنتج
-          introCard.style.opacity = clamped < 0.2 ? (1 - clamped / 0.2).toString() : '0';
-          introCard.style.transform = `translateY(${clamped * -20}px)`;
-        }
+    // تحكم سلس بالنصوص
+    const introCard = document.getElementById('overlay-intro');
+    const leftCard = document.getElementById('overlay-step-1');
+    const rightCard = document.getElementById('overlay-step-2');
 
-        if(leftCard){
-          // كرت المواصفات يظهر أثناء دوران العبوة بالنصف
-          if(clamped >= 0.3 && clamped <= 0.7){
-            const norm = (clamped - 0.3) / 0.4;
-            const op = norm < 0.5 ? norm * 2 : (1 - norm) * 2;
-            leftCard.style.opacity = op.toString();
-          } else {
-            leftCard.style.opacity = '0';
-          }
-        }
+    if(introCard){
+      introCard.style.opacity = clamped < 0.2 ? (1 - clamped / 0.2).toString() : '0';
+      introCard.style.pointerEvents = clamped < 0.2 ? 'auto' : 'none';
+    }
 
-        if(rightCard){
-          // الكرت الأخير بنهاية لفة العبوة
-          if(clamped > 0.7){
-            const norm = (clamped - 0.7) / 0.3;
-            rightCard.style.opacity = Math.min(1, norm * 2).toString();
-          } else {
-            rightCard.style.opacity = '0';
-          }
-        }
+    if(leftCard){
+      if(clamped >= 0.25 && clamped <= 0.65){
+        const p = (clamped - 0.25) / 0.4;
+        leftCard.style.opacity = (p < 0.5 ? p * 2 : (1 - p) * 2).toString();
+      } else {
+        leftCard.style.opacity = '0';
+      }
+    }
 
-        isTicking = false;
-      });
-      isTicking = true;
+    if(rightCard){
+      if(clamped > 0.65){
+        const p = (clamped - 0.65) / 0.35;
+        rightCard.style.opacity = Math.min(1, p * 2).toString();
+      } else {
+        rightCard.style.opacity = '0';
+      }
     }
   }
 
@@ -150,9 +134,9 @@
       pin: true,
       pinSpacing: true,
       anticipatePin: 1,
-      scrub: 0.5,
+      scrub: 0.3,
       start: 'top top',
-      end: '+=350vh',
+      end: '+=400vh',
       invalidateOnRefresh: true,
       onUpdate: self => renderProgress(self.progress),
       onRefresh: self => renderProgress(self.progress)
@@ -160,16 +144,18 @@
 
     ScrollTrigger.refresh();
   }
+
   function refresh(){
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       resizeCanvas();
       if(window.ScrollTrigger) ScrollTrigger.refresh();
-    }, 100);
+    }, 80);
   }
 
   resizeCanvas();
-  initPreload();
+  loadFrame(0, () => drawFrame(0));
+  preloadAround(0);
 
   if(document.readyState === 'complete'){
     setupPin();
