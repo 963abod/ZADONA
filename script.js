@@ -150,17 +150,16 @@
       pin: true,
       pinSpacing: true,
       anticipatePin: 1,
-      scrub: 0.8,         // سكرول بطيء وأكثر استجابة ومرونة
+      scrub: 0.5,
       start: 'top top',
-      end: '+=650vh',     // مسافة سكرول كافية لتكون الحركة هادئة وموزونة
+      end: '+=350vh',
       invalidateOnRefresh: true,
       onUpdate: self => renderProgress(self.progress),
       onRefresh: self => renderProgress(self.progress)
-    );
+    });
 
     ScrollTrigger.refresh();
   }
-
   function refresh(){
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
