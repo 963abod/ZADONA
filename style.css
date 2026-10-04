@@ -681,3 +681,178 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
 }
 
 
+
+
+/* ===================================================
+   ZADONA - QUALITY SECTION (02 / THE STANDARD)
+   Final scoped override
+=================================================== */
+
+.quality-editorial {
+  background-color: var(--zadona-cream, #f3ebd6);
+  padding: 80px 6% 90px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.quality-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 60px;
+  border-bottom: 1px solid rgba(26, 66, 47, 0.12);
+  padding-bottom: 24px;
+}
+
+.quality-editorial .section-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: rgba(26, 66, 47, 0.6);
+  margin: 0;
+}
+
+.quality-caption {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--zadona-green, #1a422f);
+  text-align: right;
+  margin: 0;
+}
+
+.quality-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.quality-index {
+  font-size: 0.85rem;
+  font-family: monospace;
+  color: rgba(26, 66, 47, 0.4);
+  letter-spacing: 0.1em;
+  text-align: right;
+  margin-bottom: -20px;
+}
+
+.quality-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: start;
+  gap: 24px;
+  text-align: right;
+  border-bottom: 1px solid rgba(26, 66, 47, 0.08);
+  padding-bottom: 35px;
+}
+
+.quality-item > span {
+  font-size: 1.1rem;
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--zadona-green, #1a422f);
+  opacity: 0.4;
+  padding-top: 4px;
+}
+
+.quality-item small {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #8c7b64;
+  margin-bottom: 10px;
+  position: static !important;
+  opacity: 1 !important;
+}
+
+.quality-item h3 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--zadona-green, #1a422f);
+  margin: 0 0 14px;
+}
+
+.quality-item h3 em {
+  font-style: normal;
+  color: #4b6354;
+}
+
+.quality-item p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #445349;
+  margin: 0;
+  max-width: 580px;
+}
+
+.quality-badges {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quality-badges > div {
+  background: var(--zadona-card-bg, #faf5e8);
+  border: 1px solid rgba(26, 66, 47, 0.12);
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.quality-badges strong {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--zadona-green, #1a422f);
+  letter-spacing: 0.04em;
+}
+
+.quality-badges span {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: #7b887f;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .quality-editorial {
+    padding: 60px 5% 70px;
+  }
+
+  .quality-top {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .quality-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .quality-item > span {
+    font-size: 0.95rem;
+  }
+
+  .quality-badges {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 50px;
+  }
+}
