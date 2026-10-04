@@ -114,7 +114,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       end:'+=2000',
       invalidateOnRefresh:true,
       onUpdate:self=>renderProgress(self.progress),
-      onRefresh:self=>renderProgress(self.progress)
+      onRefresh:self=>renderProgress(self.progress),
+      onLeave:()=>{
+        section.classList.add('is-complete');
+      },
+      onEnterBack:()=>{
+        section.classList.remove('is-complete');
+      }
     });
 
     ScrollTrigger.refresh();
