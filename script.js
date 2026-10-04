@@ -2,6 +2,7 @@ const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersec
 
 (function(){
   const section=document.getElementById('product-sequence'),
+        track=section&&section.parentElement,
         canvas=document.getElementById('product-sequence-canvas'),
         loading=document.getElementById('sequence-loading');
   if(!section||!canvas)return;
@@ -79,8 +80,9 @@ const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersec
 
   function update(){
     raf=0;
-    const r=section.getBoundingClientRect();
-    const travel=Math.max(1,section.offsetHeight-innerHeight);
+    if(!track)return;
+    const r=track.getBoundingClientRect();
+    const travel=Math.max(1,track.offsetHeight-innerHeight);
     const raw=Math.max(0,Math.min(1,-r.top/travel));
     // Slow the first part of the sequence so the product stays visually locked
     // while the page advances, then let the frames catch up near the end.
