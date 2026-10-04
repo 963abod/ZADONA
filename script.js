@@ -113,6 +113,39 @@
         } else {
           canvas.style.opacity = '1';
         }
+        // تحكم بظهور واختفاء النصوص العائمة بحسب مرحلة السكرول
+        const introCard = document.getElementById('overlay-intro');
+        const leftCard = document.getElementById('overlay-step-1');
+        const rightCard = document.getElementById('overlay-step-2');
+
+        if (introCard && leftCard && rightCard) {
+          // الكرت الأول الترحيبي: يختفي بعد 25% من السكرول
+          if (clamped < 0.25) {
+            introCard.style.opacity = (1 - (clamped / 0.25)).toString();
+            introCard.style.transform = `translateY(${clamped * -20}px)`;
+          } else {
+            introCard.style.opacity = '0';
+          }
+
+          // الكرت الثاني: يظهر بنصف السكرول ويختفي بعدين
+          if (clamped >= 0.25 && clamped < 0.65) {
+            const p = (clamped - 0.25) / 0.4;
+            leftCard.style.opacity = (p < 0.5 ? p * 2 : (1 - p) * 2).toString();
+            leftCard.style.transform = `translateY(${(1 - p) * 15}px)`;
+          } else {
+            leftCard.style.opacity = '0';
+          }
+
+          // الكرت الثالث: يظهر بآخر لفة القنينة
+          if (clamped >= 0.65 && clamped < 0.9) {
+            const p = (clamped - 0.65) / 0.25;
+            rightCard.style.opacity = (p < 0.5 ? p * 2 : (1 - p) * 2).toString();
+            rightCard.style.transform = `translateY(${(1 - p) * 15}px)`;
+          } else {
+            rightCard.style.opacity = '0';
+          }
+        }
+
         isTicking = false;
       });
       isTicking = true;
