@@ -756,33 +756,31 @@ footer{position:relative;z-index:10;background:var(--cream);padding:30px 6vw;dis
   }
 }
 
-/* ===================================================
-   ZADONA - FLOATING BOTTLE
-=================================================== */
+/* العبوة العائمة */
 .floating-bottle {
   position: fixed;
-  top: 50%;
-  right: 7%;
-  width: clamp(150px, 18vw, 280px);
-  transform: translateY(-50%);
-  z-index: 40;
+  top: 22%;
+  left: 8%;
+  width: clamp(150px, 18vw, 240px);
+  z-index: 999;
   pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  will-change: transform;
+  filter: drop-shadow(0 25px 35px rgba(26, 66, 47, 0.22));
+  transition: filter 0.4s ease;
 }
 
-#bottle-img {
-  display: block;
+.floating-bottle img {
   width: 100%;
   height: auto;
+  display: block;
   object-fit: contain;
-  filter: drop-shadow(0 24px 35px rgba(2, 17, 12, 0.16));
 }
 
-@media (max-width: 800px) {
+/* بالموبايل */
+@media (max-width: 768px) {
   .floating-bottle {
-    width: 135px;
-    right: 4%;
+    width: 130px;
+    top: 26%;
+    left: 6%;
   }
 }
