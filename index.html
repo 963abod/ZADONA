@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZADONA | صناعات غذائية متقدمة</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+  <!-- العبوة العائمة الأساسية -->
+  <div id="floating-bottle" class="floating-bottle">
+    <img src="./public/images/bottle.png" alt="ZADONA Protein Milk">
+  </div>
+
+  <!-- الهيدر -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">
+        <span>ZADONA</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#about">عن زادونا</a>
+        <a href="#quality">المعايير</a>
+        <a href="#products">المنتجات</a>
+        <a href="#contact" class="nav-cta">تواصل معنا</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. الهيرو -->
+    <section id="hero" class="hero-section">
+      <div class="hero-container">
+        <span class="badge">منظومة تصنيع متكاملة</span>
+        <h1 class="hero-title">نبتكر الغذاء،<br>بمعايير صناعية<br><span>تفوق التوقّع.</span></h1>
+        <p class="hero-desc">
+          من صالات الإنتاج الفائقة التعقيم إلى أسطول النقل المبرّد؛ زادونا تؤسس جيلاً جديداً من المنتجات الغذائية المدعمة بالبروتين بأعلى درجات الانضباط.
+        </p>
+      </div>
+
+      <div class="hero-bento">
+        <div class="bento-card">
+          <img src="./public/images/zadona-truck.jpg" alt="خطوط إنتاج مؤتمتة">
+          <span>01 / خطوط إنتاج مؤتمتة بالكامل</span>
+        </div>
+        <div class="bento-card">
+          <img src="./public/images/zadona-truck.jpg" alt="أسطول النقل المعتمد">
+          <span>02 / أسطول النقل المعتمد</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. المدار والفكرة -->
+    <section id="about" class="about-section">
+      <div class="about-container">
+        <div class="orbit-visual">
+          <div class="orbit-circle">
+            <span class="orbit-tag top">ZA</span>
+            <div class="orbit-center">DO</div>
+            <span class="orbit-tag bottom">NA</span>
+          </div>
+        </div>
+        <div class="about-content">
+          <span class="section-label">01 / THE IDEA</span>
+          <h2>نبدأ من<br><span>التفاصيل.</span></h2>
+          <p class="lead-text">الغذاء بالنسبة لنا ليس مجرد منتج، إنه تجربة تبدأ قبل أن يصل إلى يدك.</p>
+          <p class="sub-text">مكونات مختارة، صناعة دقيقة، وهوية تعرف ماذا تريد أن تقول.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. معايير الجودة -->
+    <section id="quality" class="quality-editorial">
+      <div class="quality-top">
+        <span class="section-label">02 / THE STANDARD</span>
+        <p class="quality-caption">
+          من المصدر إلى المنتج.<br>
+          نظام واضح يحافظ على الجودة في كل مرحلة.
+        </p>
+      </div>
+
+      <div class="quality-stage">
+        <div class="quality-index">01—03</div>
+
+        <article class="quality-item q-one">
+          <span>01</span>
+          <div>
+            <small>SOURCE</small>
+            <h3>نختار<br><em>من البداية.</em></h3>
+            <p>كل نتيجة جيدة تبدأ بمصدر جيد. لذلك نضع الاختيار قبل كل شيء.</p>
+          </div>
+        </article>
+
+        <article class="quality-item q-two">
+          <span>02</span>
+          <div>
+            <small>CRAFT</small>
+            <h3>نصنع<br><em>بدقة.</em></h3>
+            <p>نحوّل المواد الخام إلى تجربة ثابتة، واضحة، ويمكن الوثوق بها.</p>
+          </div>
+        </article>
+
+        <article class="quality-item q-three">
+          <span>03</span>
+          <div>
+            <small>IDEAS</small>
+            <h3>نطوّر<br><em>الممكن.</em></h3>
+            <p>لا نتعامل مع المنتج كنهاية؛ بل كنقطة بداية لفكرة جديدة.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="quality-badges" aria-label="معايير الجودة">
+        <div>
+          <strong>ISO 22000</strong>
+          <span>FOOD SAFETY</span>
+        </div>
+        <div>
+          <strong>HACCP</strong>
+          <span>PROCESS CONTROL</span>
+        </div>
+        <div>
+          <strong>HALAL</strong>
+          <span>QUALITY STANDARD</span>
+        </div>
+        <div>
+          <strong>QA</strong>
+          <span>QUALITY ASSURANCE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. الإحصائيات -->
+    <section id="stats" class="stats-section">
+      <div class="stats-container">
+        <div class="stat-box">
+          <span class="stat-num">01</span>
+          <p class="stat-title">هوية غذائية أصيلة</p>
+          <small>LOCAL EXCELLENCE</small>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">100%</span>
+          <p class="stat-title">اهتمام بأدق التفاصيل</p>
+          <small>PURE INGREDIENTS</small>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">∞</span>
+          <p class="stat-title">تطوير وابتكار مستمر</p>
+          <small>SUSTAINED QUALITY</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. قسم المنتجات -->
+    <section id="products" class="products-section">
+      <div class="products-container">
+        <div class="product-slot"></div>
+        <div class="products-text-content">
+          <span class="section-label">03 / منتجاتنا</span>
+          <h2>حليب بروتين زادونا<br><span>نقاء في كل عبوة.</span></h2>
+          <p>تجربة غذائية فريدة تم تطويرها بأعلى معايير الجودة لتغذية يومية متوازنة تدعم نمط حياتك الصحي.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. بانر التواصل -->
+    <section id="contact" class="contact-cta-section">
+      <div class="cta-container">
+        <span class="cta-tag">LET'S BUILD SOMETHING GOOD</span>
+        <h2 class="cta-title">خلينا نصنع<br>شيئًا يُذكر.</h2>
+        <a href="mailto:info@zadona.com" class="cta-btn">
+          <span>تواصل مع ZADONA</span>
+          <span class="btn-arrow">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- الفوتر -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <span class="brand-name">ZADONA</span>
+        <small class="brand-sub">FOOD INDUSTRIES</small>
+      </div>
+      <p class="footer-rights">© ZADONA 2026. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
