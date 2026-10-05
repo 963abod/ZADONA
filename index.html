@@ -242,6 +242,75 @@
       <p class="footer-rights">© ZADONA 2026. جميع الحقوق محفوظة.</p>
     </div>
   </footer>
-<script src="./script.js?v=waypoints"></script>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // تصفير وقتل أي سكرول قديم
+  ScrollTrigger.getAll().forEach(t => t.kill());
+
+  const bottle = document.getElementById('floating-bottle');
+  if (!bottle) return;
+
+  const isMobile = window.innerWidth <= 768;
+
+  // إحداثيات الدوائر الـ 6 المحددة بالصور بدقة بالفراغ الصافي
+  const waypoints = [
+    { x: isMobile ? '5vw' : '8vw',   y: isMobile ? '13vh' : '14vh', rot: 0 },
+    { x: isMobile ? '72vw' : '65vw', y: isMobile ? '26vh' : '24vh', rot: 360 },
+    { x: isMobile ? '6vw' : '10vw',  y: isMobile ? '64vh' : '58vh', rot: 720 },
+    { x: isMobile ? '72vw' : '68vw', y: isMobile ? '68vh' : '62vh', rot: 1080 },
+    { x: isMobile ? '65vw' : '60vw', y: isMobile ? '22vh' : '20vh', rot: 1440 },
+    { x: isMobile ? '38vw' : '42vw', y: isMobile ? '52vh' : '46vh', rot: 1800 }
+  ];
+
+  let activeIndex = 0;
+
+  function jumpToPoint(idx) {
+    if (activeIndex === idx) return;
+    activeIndex = idx;
+
+    gsap.to(bottle, {
+      x: waypoints[idx].x,
+      y: waypoints[idx].y,
+      rotation: waypoints[idx].rot,
+      duration: 0.55,
+      ease: 'power2.out',
+      overwrite: 'auto'
+    });
+  }
+
+  gsap.set(bottle, {
+    x: waypoints[0].x,
+    y: waypoints[0].y,
+    rotation: 0
+  });
+
+  const steps = [
+    { target: '#hero', idx: 0 },
+    { target: '#about', idx: 1 },
+    { target: '.q-three', idx: 2 },
+    { target: '.stats-section, .quality-highlights', idx: 3 },
+    { target: '.news-section, .editorial-news', idx: 4 },
+    { target: '#products', idx: 5 }
+  ];
+
+  steps.forEach(step => {
+    const el = document.querySelector(step.target);
+    if (!el) return;
+
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 45%',
+      end: 'bottom 45%',
+      onEnter: () => jumpToPoint(step.idx),
+      onEnterBack: () => jumpToPoint(step.idx)
+    });
+  });
+
+  ScrollTrigger.refresh();
+});
+</script>
 </body>
 </html>
