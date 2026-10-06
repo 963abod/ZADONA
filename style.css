@@ -135,10 +135,10 @@ html, body {
 }
 
 .hero-title {
-  font-size: clamp(2.2rem, 5.5vw, 4rem);
-  font-weight: 900;
-  line-height: 1.25;
-  margin-bottom: 20px;
+  font-size: clamp(1.65rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 18px;
 }
 
 .hero-desc {
