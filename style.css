@@ -460,31 +460,112 @@ html, body {
   font-size: 0.95rem;
 }
 
+/* ===================================================
+   تنسيق فوتر ZADONA - لون أخضر موحد وإلغاء الأزرق
+=================================================== */
 .site-footer {
-  padding: 40px 24px;
+  background-color: var(--zadona-cream, #f3ebd6);
+  padding: 60px 20px 35px;
   text-align: center;
-  border-top: 1px solid rgba(26, 66, 47, 0.08);
+  border-top: 1px solid rgba(26, 66, 47, 0.1);
+  direction: rtl;
 }
 
-.brand-name {
-  font-size: 1.3rem;
+.footer-container {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.footer-logo .brand-name {
+  font-size: 1.5rem;
   font-weight: 900;
   letter-spacing: 0.2em;
+  color: var(--zadona-green, #1a422f) !important;
   display: block;
 }
 
-.brand-sub {
-  font-size: 0.65rem;
+.footer-logo .brand-sub {
+  font-size: 0.7rem;
   letter-spacing: 0.25em;
-  color: var(--text-muted);
+  color: var(--zadona-green, #1a422f) !important;
+  opacity: 0.7;
   display: block;
   margin-top: 4px;
 }
 
+.footer-desc {
+  font-size: 0.9rem;
+  color: var(--zadona-green, #1a422f) !important;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.footer-col h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--zadona-green, #1a422f) !important;
+  margin-bottom: 12px;
+}
+
+/* إزالة نقاط القوائم وتلوين النصوص والروابط بالأخضر */
+.contact-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-list li,
+.contact-list span,
+.contact-list a {
+  color: var(--zadona-green, #1a422f) !important;
+  text-decoration: none !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* أزرار التواصل بتنسيق كبسولات مرتبة وأنيقة */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 14px;
+}
+
+.social-links a {
+  color: var(--zadona-green, #1a422f) !important;
+  text-decoration: none !important;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border: 1px solid rgba(26, 66, 47, 0.25);
+  border-radius: 20px;
+  transition: all 0.25s ease;
+}
+
+.social-links a:hover {
+  background-color: var(--zadona-green, #1a422f);
+  color: var(--zadona-cream, #f3ebd6) !important;
+}
+
+/* الحقوق بأسفل الفوتر */
+.footer-bottom {
+  margin-top: 35px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(26, 66, 47, 0.08);
+  width: 100%;
+}
+
 .footer-rights {
   font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-top: 16px;
+  color: var(--zadona-green, #1a422f) !important;
+  margin: 0;
 }
 
 /* ===================================================
