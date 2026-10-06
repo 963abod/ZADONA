@@ -1,6 +1,3 @@
-/* ===================================================
-   ZADONA - متغيرات الهوية وإعدادات التصفير
-=================================================== */
 :root {
   --zadona-green: #1a422f;
   --zadona-cream: #f3ebd6;
@@ -18,16 +15,77 @@
 html, body {
   background-color: var(--zadona-cream);
   color: var(--text-dark);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
-  overflow-y: auto;
   line-height: 1.6;
   direction: rtl;
 }
 
 /* ===================================================
-   العبوة العائمة - محاذاة سطر "بمعايير صناعية"
+   نافبار زجاجي (Glassmorphism Navbar)
 =================================================== */
+.glass-header {
+  position: sticky;
+  top: 14px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.glass-nav-container {
+  width: 100%;
+  max-width: 1050px;
+  background: rgba(243, 235, 214, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(26, 66, 47, 0.15);
+  box-shadow: 0 10px 30px rgba(26, 66, 47, 0.08);
+  border-radius: 40px;
+  padding: 10px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand a {
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: var(--zadona-green);
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--zadona-green);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: 0.25s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: rgba(26, 66, 47, 0.1);
+}
+
+.nav-btn-cta {
+  background: var(--zadona-green) !important;
+  color: var(--zadona-cream) !important;
+  padding: 8px 20px;
+}
+
+/* العبوة في الهيرو */
 .floating-bottle {
   position: absolute;
   top: 220px;
@@ -44,71 +102,13 @@ html, body {
   display: block;
 }
 
-/* الشاشات الكبيرة (الكمبيوتر) */
-@media (min-width: 769px) {
-  .floating-bottle {
-    top: 250px;
-    left: 8vw;
-    width: 105px;
-  }
-}
-
 /* ===================================================
-   الهيدر
-=================================================== */
-.site-header {
-  padding: 20px 6%;
-  background-color: var(--zadona-cream);
-  border-bottom: 1px solid rgba(26, 66, 47, 0.08);
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo span {
-  font-weight: 900;
-  font-size: 1.4rem;
-  letter-spacing: 0.15em;
-  color: var(--zadona-green);
-}
-
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.main-nav a {
-  text-decoration: none;
-  color: var(--text-dark);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.nav-cta {
-  background: var(--zadona-green);
-  color: var(--zadona-cream) !important;
-  padding: 8px 18px;
-  border-radius: 20px;
-}
-
-/* ===================================================
-   1. الهيرو
+   الهيرو والأقسام
 =================================================== */
 .hero-section {
-  padding: 70px 24px 60px;
+  padding: 60px 24px;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.hero-container {
-  max-width: 750px;
-  margin-bottom: 40px;
 }
 
 .badge {
@@ -125,11 +125,7 @@ html, body {
   font-size: clamp(2.2rem, 5.5vw, 4rem);
   font-weight: 900;
   line-height: 1.25;
-  margin-bottom: 24px;
-}
-
-.hero-title span {
-  color: #3b5f4c;
+  margin-bottom: 20px;
 }
 
 .hero-desc {
@@ -168,14 +164,11 @@ html, body {
   color: var(--text-muted);
 }
 
-/* ===================================================
-   2. المدار والفكرة
-=================================================== */
+/* المدار والجودة */
 .about-section {
   padding: 80px 24px;
   background: #fbf7ee;
   border-top: 1px solid rgba(26, 66, 47, 0.06);
-  border-bottom: 1px solid rgba(26, 66, 47, 0.06);
 }
 
 .about-container {
@@ -184,7 +177,7 @@ html, body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
 }
 
 .orbit-visual {
@@ -193,8 +186,8 @@ html, body {
 }
 
 .orbit-circle {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   border: 1px solid rgba(26, 66, 47, 0.2);
   border-radius: 50%;
   position: relative;
@@ -206,8 +199,8 @@ html, body {
 .orbit-center {
   background: var(--zadona-green);
   color: var(--zadona-cream);
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -218,52 +211,32 @@ html, body {
 .orbit-tag {
   position: absolute;
   font-weight: 800;
-  letter-spacing: 0.1em;
 }
-
-.orbit-tag.top { top: 12px; }
-.orbit-tag.bottom { bottom: 12px; }
+.orbit-tag.top { top: 10px; }
+.orbit-tag.bottom { bottom: 10px; }
 
 .section-label {
   font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
   color: var(--text-muted);
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .about-content h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 2.2rem;
   font-weight: 900;
-  line-height: 1.25;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-.about-content .lead-text {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.about-content .sub-text {
-  color: var(--text-muted);
-}
-
-/* ===================================================
-   3. معايير الجودة
-=================================================== */
 .quality-editorial {
-  padding: 90px 24px;
+  padding: 80px 24px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
 .quality-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   border-bottom: 1px solid rgba(26, 66, 47, 0.1);
   padding-bottom: 20px;
 }
@@ -276,83 +249,35 @@ html, body {
 .quality-stage {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-}
-
-.quality-index {
-  font-family: monospace;
-  color: var(--text-muted);
-  font-size: 0.9rem;
+  gap: 30px;
 }
 
 .quality-item {
   display: grid;
   grid-template-columns: 45px 1fr;
-  gap: 20px;
+  gap: 16px;
   border-bottom: 1px solid rgba(26, 66, 47, 0.08);
-  padding-bottom: 30px;
-}
-
-.quality-item > span {
-  font-family: monospace;
-  font-weight: 800;
-  color: var(--text-muted);
-}
-
-.quality-item small {
-  display: block;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  color: #8c7b64;
-  margin-bottom: 8px;
-  font-weight: 700;
-}
-
-.quality-item h3 {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-.quality-item p {
-  color: var(--text-muted);
-  max-width: 600px;
+  padding-bottom: 24px;
 }
 
 .quality-badges {
-  margin-top: 60px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 14px;
 }
 
 .quality-badges > div {
   background: var(--zadona-card-bg);
   border: 1px solid rgba(26, 66, 47, 0.1);
   border-radius: 12px;
-  padding: 18px 12px;
+  padding: 16px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
 }
 
-.quality-badges strong {
-  font-size: 1.05rem;
-  font-weight: 800;
-}
-
-.quality-badges span {
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-}
-
-/* ===================================================
-   4. الإحصائيات
-=================================================== */
+/* الإحصائيات وبانر التواصل */
 .stats-section {
-  padding: 60px 24px;
+  padding: 50px 24px;
   background: #ebe3cb;
 }
 
@@ -361,114 +286,46 @@ html, body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 20px;
   text-align: center;
 }
 
 .stat-num {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   font-weight: 900;
   display: block;
-  margin-bottom: 6px;
 }
 
-.stat-title {
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.stat-box small {
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-}
-
-/* ===================================================
-   5. المنتجات
-=================================================== */
-.products-section {
-  padding: 90px 24px;
-}
-
-.products-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  align-items: center;
-  gap: 40px;
-}
-
-.product-slot {
-  min-height: 220px;
-}
-
-.products-text-content h2 {
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
-  font-weight: 900;
-  line-height: 1.25;
-  margin-bottom: 16px;
-}
-
-.products-text-content p {
-  color: var(--text-muted);
-  max-width: 520px;
-  font-size: 1.05rem;
-}
-
-/* ===================================================
-   6. بانر التواصل والفوتر
-=================================================== */
 .contact-cta-section {
   background: var(--zadona-green);
   color: var(--zadona-cream);
-  padding: 90px 24px;
+  padding: 80px 24px;
   text-align: center;
 }
 
-.cta-container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.cta-tag {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  opacity: 0.7;
-  display: block;
-  margin-bottom: 20px;
-}
-
 .cta-title {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: 2.6rem;
   font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 30px;
-  color: var(--zadona-cream);
+  margin-bottom: 24px;
 }
 
 .cta-btn {
   display: inline-flex;
-  align-items: center;
-  gap: 10px;
   background: var(--zadona-cream);
   color: var(--zadona-green);
-  padding: 14px 30px;
-  border-radius: 40px;
+  padding: 12px 28px;
+  border-radius: 30px;
   text-decoration: none;
   font-weight: 800;
-  font-size: 0.95rem;
 }
 
 /* ===================================================
-   تنسيق فوتر ZADONA - لون أخضر موحد وإلغاء الأزرق
+   الفوتر الأخضر الموحد
 =================================================== */
 .site-footer {
-  background-color: var(--zadona-cream, #f3ebd6);
-  padding: 60px 20px 35px;
+  padding: 60px 24px 30px;
   text-align: center;
   border-top: 1px solid rgba(26, 66, 47, 0.1);
-  direction: rtl;
 }
 
 .footer-container {
@@ -476,120 +333,81 @@ html, body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 28px;
+  gap: 24px;
 }
 
-.footer-logo .brand-name {
-  font-size: 1.5rem;
+.brand-name {
+  font-size: 1.4rem;
   font-weight: 900;
-  letter-spacing: 0.2em;
-  color: var(--zadona-green, #1a422f) !important;
-  display: block;
+  letter-spacing: 0.15em;
+  color: var(--zadona-green);
 }
 
-.footer-logo .brand-sub {
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  color: var(--zadona-green, #1a422f) !important;
-  opacity: 0.7;
-  display: block;
-  margin-top: 4px;
-}
-
-.footer-desc {
-  font-size: 0.9rem;
-  color: var(--zadona-green, #1a422f) !important;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.footer-col h4 {
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--zadona-green, #1a422f) !important;
-  margin-bottom: 12px;
-}
-
-/* إزالة نقاط القوائم وتلوين النصوص والروابط بالأخضر */
 .contact-list {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-top: 10px;
 }
 
-.contact-list li,
-.contact-list span,
 .contact-list a {
-  color: var(--zadona-green, #1a422f) !important;
-  text-decoration: none !important;
-  font-size: 0.9rem;
+  color: var(--zadona-green);
+  text-decoration: none;
   font-weight: 600;
 }
 
-/* أزرار التواصل بتنسيق كبسولات مرتبة وأنيقة */
 .social-links {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 10px 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .social-links a {
-  color: var(--zadona-green, #1a422f) !important;
-  text-decoration: none !important;
+  color: var(--zadona-green);
+  text-decoration: none;
   font-size: 0.85rem;
   font-weight: 700;
   padding: 6px 14px;
   border: 1px solid rgba(26, 66, 47, 0.25);
   border-radius: 20px;
-  transition: all 0.25s ease;
 }
 
-.social-links a:hover {
-  background-color: var(--zadona-green, #1a422f);
-  color: var(--zadona-cream, #f3ebd6) !important;
-}
-
-/* الحقوق بأسفل الفوتر */
 .footer-bottom {
-  margin-top: 35px;
-  padding-top: 18px;
+  margin-top: 30px;
   border-top: 1px solid rgba(26, 66, 47, 0.08);
-  width: 100%;
-}
-
-.footer-rights {
+  padding-top: 16px;
   font-size: 0.75rem;
-  color: var(--zadona-green, #1a422f) !important;
-  margin: 0;
+  color: var(--text-muted);
 }
 
-/* ===================================================
-   الموبايل
-=================================================== */
+/* تجاوب الموبايل */
 @media (max-width: 768px) {
   .hero-bento,
   .about-container,
-  .products-container,
   .stats-container {
     grid-template-columns: 1fr;
-    gap: 30px;
   }
-
   .quality-badges {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .quality-top {
-    flex-direction: column;
-    gap: 14px;
+  .glass-header {
+    top: 8px;
+    padding: 0 10px;
   }
-
-  .main-nav {
-    display: none;
+  .glass-nav-container {
+    padding: 8px 12px;
+    border-radius: 20px;
+  }
+  .nav-menu {
+    gap: 4px;
+    overflow-x: auto;
+  }
+  .nav-item {
+    font-size: 0.76rem;
+    padding: 5px 8px;
+    white-space: nowrap;
   }
 }
