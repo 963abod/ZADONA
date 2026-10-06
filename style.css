@@ -88,8 +88,8 @@ html, body {
 /* العبوة في الهيرو */
 .floating-bottle {
   position: absolute;
-  top: 220px;
-  left: 5vw;
+  top: 165px;        /* رفع العبوة لتصير بمحاذاة "بمعايير صناعية" تماماً */
+  left: 6vw;
   width: 75px;
   z-index: 10;
   pointer-events: none;
