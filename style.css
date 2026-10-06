@@ -411,3 +411,153 @@ html, body {
     white-space: nowrap;
   }
 }
+
+/* ===================================================
+   تنسيق صفحة المنتجات والكروت الفاخرة
+=================================================== */
+.products-hero {
+  padding: 60px 24px 30px;
+  text-align: center;
+}
+
+.products-hero-inner {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.products-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  color: var(--zadona-green);
+  margin: 16px 0 12px;
+}
+
+.products-hero p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.products-catalog {
+  padding: 20px 24px 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+/* الكرت الفاخر */
+.luxury-card {
+  background: var(--zadona-card-bg);
+  border: 1px solid rgba(26, 66, 47, 0.12);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.luxury-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(26, 66, 47, 0.08);
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tag-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(26, 66, 47, 0.08);
+  color: var(--zadona-green);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.tag-category {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #8c7b64;
+  letter-spacing: 0.05em;
+}
+
+.card-visual {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 20px;
+}
+
+.card-visual img {
+  max-height: 160px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(26, 66, 47, 0.15));
+}
+
+.card-body h3 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--zadona-green);
+  margin-bottom: 8px;
+}
+
+.card-brief {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  min-height: 42px;
+}
+
+/* جدول المواصفات */
+.spec-list {
+  background: rgba(26, 66, 47, 0.03);
+  border: 1px solid rgba(26, 66, 47, 0.07);
+  border-radius: 16px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  border-bottom: 1px dashed rgba(26, 66, 47, 0.08);
+  padding-bottom: 6px;
+}
+
+.spec-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.spec-row span {
+  color: var(--text-muted);
+}
+
+.spec-row strong {
+  color: var(--zadona-green);
+  font-weight: 700;
+}
+
+/* التجاوب */
+@media (max-width: 600px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
