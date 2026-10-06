@@ -26,16 +26,15 @@ html, body {
 }
 
 /* ===================================================
-   العبوة العائمة المبدئية
+   العبوة العائمة - محاذاة سطر "بمعايير صناعية"
 =================================================== */
 .floating-bottle {
-  position: fixed;
-  top: 13vh;
+  position: absolute;
+  top: 220px;
   left: 5vw;
-  width: 80px;
-  z-index: 999;
+  width: 75px;
+  z-index: 10;
   pointer-events: none;
-  will-change: transform;
   filter: drop-shadow(0 14px 22px rgba(26, 66, 47, 0.22));
 }
 
@@ -45,11 +44,12 @@ html, body {
   display: block;
 }
 
+/* الشاشات الكبيرة (الكمبيوتر) */
 @media (min-width: 769px) {
   .floating-bottle {
-    width: 110px;
-    top: 15vh;
+    top: 250px;
     left: 8vw;
+    width: 105px;
   }
 }
 
@@ -400,7 +400,7 @@ html, body {
 }
 
 .product-slot {
-  min-height: 220px; /* مساحة حجز مكان العبوة */
+  min-height: 220px;
 }
 
 .products-text-content h2 {
