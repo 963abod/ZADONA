@@ -273,19 +273,44 @@ html, body {
   padding-bottom: 24px;
 }
 
+/* ===================================================
+   توسيط وفصل كروت الشهادات والمعايير
+=================================================== */
 .quality-badges {
-  margin-top: 50px;
+  margin: 40px auto 0;
+  max-width: 800px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
+  justify-content: center;
 }
 
 .quality-badges > div {
   background: var(--zadona-card-bg);
   border: 1px solid rgba(26, 66, 47, 0.1);
-  border-radius: 12px;
-  padding: 16px;
+  border-radius: 14px;
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  gap: 6px;
+}
+
+.quality-badges > div strong {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--zadona-green);
+  display: block;
+}
+
+.quality-badges > div span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  display: block;
 }
 
 /* الإحصائيات وبانر التواصل */
@@ -405,6 +430,9 @@ html, body {
   }
   .quality-badges {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 360px;
+    margin: 30px auto 0;
+    gap: 12px;
   }
   .glass-header {
     top: 8px;
