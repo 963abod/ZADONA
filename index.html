@@ -4,25 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZADONA | صناعات غذائية متقدمة</title>
-  <link rel="stylesheet" href="./style.css">
-  <!-- GSAP & ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="./style.css?v=2">
 </head>
 <body>
 
-  <!-- العبوة العائمة الأساسية -->
-  <div id="floating-bottle" class="floating-bottle">
-    <img src="./public/images/bottle.png" alt="ZADONA Protein Milk">
-  </div>
-
-  <!-- نافبار زجاجي عائم (Glassmorphic Navbar) -->
+  <!-- 1. نافبار زجاجي عائم (Glass Navbar) -->
   <header class="glass-header">
     <div class="glass-nav-container">
       <div class="nav-brand">
         <a href="index.html">ZADONA</a>
       </div>
-      
       <nav class="nav-menu">
         <a href="index.html" class="nav-item active">الرئيسية</a>
         <a href="about.html" class="nav-item">من نحن</a>
@@ -33,8 +24,13 @@
     </div>
   </header>
 
+  <!-- العبوة العائمة في الهيرو -->
+  <div id="floating-bottle" class="floating-bottle">
+    <img src="./public/images/bottle.png" alt="ZADONA Bottle">
+  </div>
+
   <main>
-    <!-- 1. الهيرو -->
+    <!-- 2. قسم الهيرو مع صورة المصنع والشاحنة -->
     <section id="hero" class="hero-section">
       <div class="hero-container">
         <span class="badge">منظومة تصنيع متكاملة</span>
@@ -45,13 +41,10 @@
       </div>
 
       <div class="hero-bento">
-        <!-- الكرت الأول: واجهة المصنع -->
         <div class="bento-card">
           <img src="./public/images/factory.jpg" alt="مجمع زادونا الصناعي">
           <span>01 / صرح صناعي متطور بمعايير عالمية</span>
         </div>
-
-        <!-- الكرت الثاني: أسطول الشاحنات -->
         <div class="bento-card">
           <img src="./public/images/zadona-truck.jpg" alt="أسطول النقل المعتمد">
           <span>02 / أسطول النقل اللوجستي المعتمد</span>
@@ -59,7 +52,7 @@
       </div>
     </section>
 
-    <!-- 2. المدار والفكرة -->
+    <!-- 3. قسم المدار والفكرة -->
     <section id="about" class="about-section">
       <div class="about-container">
         <div class="orbit-visual">
@@ -78,7 +71,7 @@
       </div>
     </section>
 
-    <!-- 3. معايير الجودة -->
+    <!-- 4. معايير الجودة -->
     <section id="quality" class="quality-editorial">
       <div class="quality-top">
         <span class="section-label">02 / THE STANDARD</span>
@@ -90,8 +83,7 @@
 
       <div class="quality-stage">
         <div class="quality-index">01—03</div>
-
-        <article class="quality-item q-one">
+        <article class="quality-item">
           <span>01</span>
           <div>
             <small>SOURCE</small>
@@ -100,7 +92,7 @@
           </div>
         </article>
 
-        <article class="quality-item q-two">
+        <article class="quality-item">
           <span>02</span>
           <div>
             <small>CRAFT</small>
@@ -109,7 +101,7 @@
           </div>
         </article>
 
-        <article class="quality-item q-three">
+        <article class="quality-item">
           <span>03</span>
           <div>
             <small>IDEAS</small>
@@ -119,27 +111,15 @@
         </article>
       </div>
 
-      <div class="quality-badges" aria-label="معايير الجودة">
-        <div>
-          <strong>ISO 22000</strong>
-          <span>FOOD SAFETY</span>
-        </div>
-        <div>
-          <strong>HACCP</strong>
-          <span>PROCESS CONTROL</span>
-        </div>
-        <div>
-          <strong>HALAL</strong>
-          <span>QUALITY STANDARD</span>
-        </div>
-        <div>
-          <strong>QA</strong>
-          <span>QUALITY ASSURANCE</span>
-        </div>
+      <div class="quality-badges">
+        <div><strong>ISO 22000</strong><span>FOOD SAFETY</span></div>
+        <div><strong>HACCP</strong><span>PROCESS CONTROL</span></div>
+        <div><strong>HALAL</strong><span>QUALITY STANDARD</span></div>
+        <div><strong>QA</strong><span>QUALITY ASSURANCE</span></div>
       </div>
     </section>
 
-    <!-- 4. الإحصائيات -->
+    <!-- 5. الإحصائيات -->
     <section id="stats" class="stats-section">
       <div class="stats-container">
         <div class="stat-box">
@@ -160,126 +140,6 @@
       </div>
     </section>
 
-    <!-- قسم المنتجات على طريقة هوى الشام بهوية ZADONA -->
-    <section id="products" class="products-showcase">
-      <div class="products-header">
-        <span class="section-label">03 / تشكيلة المنتجات</span>
-        <h2 class="showcase-title">منتجات زادونا الغذائية</h2>
-        <p class="showcase-subtitle">نقاء الطبيعة معزز بأحدث معايير الجودة والتصنيع الغذائي</p>
-
-        <!-- أزرار التصنيفات (Categories Filter) -->
-        <div class="product-tabs">
-          <button class="tab-btn active" data-filter="all">جميع المنتجات</button>
-          <button class="tab-btn" data-filter="milk">الحليب والبروتين</button>
-          <button class="tab-btn" data-filter="cheese">الأجبان الفاخرة</button>
-          <button class="tab-btn" data-filter="dairy">الألبان والزبادي</button>
-          <button class="tab-btn" data-filter="cream">القشطة والزبدة</button>
-        </div>
-      </div>
-
-      <!-- شبكة عرض المنتجات -->
-      <div class="products-grid">
-        
-        <!-- منتج 1 -->
-        <div class="product-card" data-category="milk">
-          <div class="product-badge">الأكثر طلباً</div>
-          <div class="card-img">
-            <img src="./public/images/bottle.png" alt="حليب بروتين زادونا">
-          </div>
-          <div class="card-info">
-            <span class="prod-cat">الحليب والبروتين</span>
-            <h3 class="prod-title">حليب بروتين زادونا</h3>
-            <p class="prod-weight">عبوة 330 مل — 25g بروتين صافي</p>
-            <div class="card-action">
-              <span class="prod-status">معقم ومبستر</span>
-              <a href="#contact" class="prod-btn">طلب توريد ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- منتج 2 -->
-        <div class="product-card" data-category="milk">
-          <div class="card-img">
-            <img src="./public/images/bottle.png" alt="حليب زادونا كامل الدسم">
-          </div>
-          <div class="card-info">
-            <span class="prod-cat">الحليب والبروتين</span>
-            <h3 class="prod-title">حليب زادونا كامل الدسم</h3>
-            <p class="prod-weight">عبوة 1 لتر — طازج 100%</p>
-            <div class="card-action">
-              <span class="prod-status">خالي من المواد الحافظة</span>
-              <a href="#contact" class="prod-btn">طلب توريد ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- منتج 3 -->
-        <div class="product-card" data-category="cheese">
-          <div class="card-img">
-            <img src="./public/images/bottle.png" alt="جبنة قشقوان زادونا">
-          </div>
-          <div class="card-info">
-            <span class="prod-cat">الأجبان الفاخرة</span>
-            <h3 class="prod-title">جبنة قشقوان مبسترة</h3>
-            <p class="prod-weight">قالب 400 غرام — نكهة غنية</p>
-            <div class="card-action">
-              <span class="prod-status">جودة تصديرية</span>
-              <a href="#contact" class="prod-btn">طلب توريد ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- منتج 4 -->
-        <div class="product-card" data-category="dairy">
-          <div class="card-img">
-            <img src="./public/images/bottle.png" alt="لبن زبادي زادونا">
-          </div>
-          <div class="card-info">
-            <span class="prod-cat">الألبان والزبادي</span>
-            <h3 class="prod-title">لبن زبادي كامل الدسم</h3>
-            <p class="prod-weight">سطل 1 كغ — قوام متماسك وطبيعي</p>
-            <div class="card-action">
-              <span class="prod-status">بكتيريا نافعة نشطة</span>
-              <a href="#contact" class="prod-btn">طلب توريد ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- منتج 5 -->
-        <div class="product-card" data-category="cream">
-          <div class="card-img">
-            <img src="./public/images/bottle.png" alt="قشطة زادونا البلدية">
-          </div>
-          <div class="card-info">
-            <span class="prod-cat">القشطة والزبدة</span>
-            <h3 class="prod-title">قشطة بلدية طازجة</h3>
-            <p class="prod-weight">عبوة 250 غرام — دسم نقي 100%</p>
-            <div class="card-action">
-              <span class="prod-status">طازجة يومياً</span>
-              <a href="#contact" class="prod-btn">طلب توريد ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- منتج 6 -->
-        <div class="product-card" data-category="cheese">
-          <div class="card-img">
-            <img src="./public/images/bottle.png" alt="جبنة حلوم زادونا">
-          </div>
-          <div class="card-info">
-            <span class="prod-cat">الأجبان الفاخرة</span>
-            <h3 class="prod-title">جبنة حلوم قبرصية</h3>
-            <p class="prod-weight">عبوة 250 غرام — للشوي والقلي</p>
-            <div class="card-action">
-              <span class="prod-status">درجة أولى</span>
-              <a href="#contact" class="prod-btn">طلب توريد ↗</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
     <!-- 6. بانر التواصل -->
     <section id="contact" class="contact-cta-section">
       <div class="cta-container">
@@ -293,56 +153,38 @@
     </section>
   </main>
 
-  <!-- الفوتر ومعلومات الاتصال والتواصل -->
+  <!-- 7. الفوتر النهائي بمعلومات الاتصال -->
   <footer class="site-footer">
     <div class="footer-container">
-      
-      <!-- شعار الشركة ونبذة سريعة -->
-      <div class="footer-col brand-col">
-        <div class="footer-logo">
-          <span class="brand-name">ZADONA</span>
-          <small class="brand-sub">FOOD INDUSTRIES</small>
-        </div>
-        <p class="footer-desc">نبتكر الغذاء بمعايير صناعية رائدة وجودة تتخطى التوقعات.</p>
+      <div class="footer-logo">
+        <span class="brand-name">ZADONA</span>
+        <small class="brand-sub">FOOD INDUSTRIES</small>
       </div>
-
-      <!-- معلومات الاتصال -->
-      <div class="footer-col contact-col">
+      <p class="footer-desc">نبتكر الغذاء بمعايير صناعية رائدة وجودة تتخطى التوقعات.</p>
+      
+      <div class="footer-col">
         <h4>معلومات الاتصال</h4>
         <ul class="contact-list">
-          <li>
-            <span>العنوان:</span>
-            <p>المدينة الصناعية، دمشق - سوريا</p>
-          </li>
-          <li>
-            <span>الهاتف:</span>
-            <a href="tel:+963110000000" dir="ltr">+963 11 000 0000</a>
-          </li>
-          <li>
-            <span>البريد:</span>
-            <a href="mailto:info@zadona.com">info@zadona.com</a>
-          </li>
+          <li>المدينة الصناعية، دمشق - سوريا</li>
+          <li><a href="tel:+963110000000" dir="ltr">+963 11 000 0000</a></li>
+          <li><a href="mailto:info@zadona.com">info@zadona.com</a></li>
         </ul>
       </div>
 
-      <!-- روابط التواصل الاجتماعي -->
-      <div class="footer-col social-col">
+      <div class="footer-col">
         <h4>تابعنا</h4>
         <div class="social-links">
-          <a href="https://instagram.com/zadona" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://linkedin.com/company/zadona" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://facebook.com/zadona" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://x.com/zadona" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Facebook</a>
+          <a href="#">X (Twitter)</a>
         </div>
       </div>
-
     </div>
-
     <div class="footer-bottom">
       <p class="footer-rights">© ZADONA 2026. جميع الحقوق محفوظة.</p>
     </div>
   </footer>
 
-  <script src="./script.js"></script>
 </body>
 </html>
