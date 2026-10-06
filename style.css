@@ -85,21 +85,34 @@ html, body {
   padding: 8px 20px;
 }
 
-/* العبوة في الهيرو */
+/* ===================================================
+   تعديل حجم العبوة لشاشات سطح المكتب والموبايل
+=================================================== */
 .floating-bottle {
   position: absolute;
-  top: 165px;        /* رفع العبوة لتصير بمحاذاة "بمعايير صناعية" تماماً */
-  left: 6vw;
-  width: 75px;
+  top: 130px;
+  left: 8vw;
+  width: 190px;
   z-index: 10;
   pointer-events: none;
-  filter: drop-shadow(0 14px 22px rgba(26, 66, 47, 0.22));
+  filter: drop-shadow(0 20px 35px rgba(26, 66, 47, 0.25));
+  transition: all 0.3s ease;
 }
 
 .floating-bottle img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* الحفاظ على المقاس الصغير للموبايل داخل الميديا كويري */
+@media (max-width: 768px) {
+  .floating-bottle {
+    width: 75px;
+    top: 165px;
+    left: 6vw;
+    filter: drop-shadow(0 12px 18px rgba(26, 66, 47, 0.2));
+  }
 }
 
 /* ===================================================
